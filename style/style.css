@@ -52,31 +52,33 @@
     justify-content: center;
     align-items: left;
     width: 40%;
-    border: 1px solid blue;
 }
 .cap2{
     display: flex;
     align-items: center;
     justify-content: right;
     width: 60%;
-    border: 1px solid blue;
 }
 .cap3{
     height: 100%;
-    border: 1px solid aqua;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
+}
+.cap4{
+    height: 100%;
+    display: flex;
+    justify-content: right;
 }
 
 
 #hello{
-    margin-left: 4vw;
+    margin-left: 6vw;
     font-size: 4vw;
     font-family: "ESregular";
 }
 #name{
-    margin-left: 4vw;
+    margin-left: 6vw;
     font-size: 4.4vw;
     font-family: "ESbold";
 }
@@ -90,10 +92,81 @@
 }
 
 #profile{
+    transform: translate( -8%, 50%) scale(2);
     width: 100%;
 }
 
+.search{
+    display: flex;
+    align-items: center;
+    margin-left: 6vw;
+    height: 70%;
+    width: 90%;
+    border-radius: 3vw;
+    border: 1px solid #EDEDED;
+}
+
+#lupa{
+    margin-left: 4vw;
+    margin-right: 2vw;
+}
 #search{
+    border: none;
     height: 50%;
-    background-image: url('ruta_de_la_imagen.jpg');
+    font-family: "ESregular", sans-serif;
+    font-size: 4vw;
+}
+
+#filter{
+    width: 12vw;
+    margin-right: 4vw;
+}
+
+
+
+.categorias{
+    display: flex;
+    align-items: center;
+}
+
+.categoriascont{
+    gap: 4vw;
+    height: 50%;
+    width: 100%;
+    display: grid;
+    transform: translateX(6vw);
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.elemento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2vw;
+    border: 1px solid #EDEDED;
+}
+
+.elemento2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #292526;
+    border-radius: 2vw;
+    border: none;
+}
+
+.categoriaIcon{
+    width: 5vw;
+    margin-right: 1vw;
+}
+
+.categoriaText{
+    color: #1B2028;
+    font-size: 3.2vw;
+    font-family: "ESmedium", sans-serif;
+}
+.categoriaText2{
+    color: #ffffff;
+    font-size: 3.2vw;
+    font-family: "ESmedium", sans-serif;
 }
