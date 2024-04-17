@@ -134,31 +134,29 @@
 }
 
 .categoriascont{
-    gap: 4vw;
+    gap: 2vw;
     height: 50%;
-    width: 100%;
-    display: grid;
-    transform: translateX(6vw);
-    grid-template-columns: repeat(4, 1fr);
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    overflow-x: auto;
 }
 
 .elemento{
+    padding-left: 2vw;
+    padding-right: 2vw;
     height: 5vh;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 2vw;
     border: 1px solid #EDEDED;
+    background-color: #ffffff;
+    box-sizing: border-box;
 }
-
-.elemento2{
-    height: 5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #292526;
-    border-radius: 2vw;
-    border: none;
+.elemento:hover{
+    filter: invert(100%);
 }
 
 .categoriaIcon{
@@ -170,11 +168,7 @@
     color: #1B2028;
     font-size: 1.6vh;
     font-family: "ESmedium", sans-serif;
-}
-.categoriaText2{
-    color: #ffffff;
-    font-size: 1.6vh;
-    font-family: "ESmedium", sans-serif;
+    text-wrap: nowrap;
 }
 
 
