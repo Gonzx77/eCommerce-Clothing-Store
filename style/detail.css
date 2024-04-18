@@ -16,6 +16,10 @@
     font-family: "ESmedium";
     src: url(../storage/fonts/encodeSans/EncodeSans-Medium.ttf);
 }
+@font-face {
+    font-family: "ESmixed";
+    src: url(../storage/fonts/encodeSans/EncodeSans_SemiCondensed-Medium.ttf);
+}
 
 *{
     padding: 0;
@@ -23,25 +27,28 @@
     box-sizing: border-box;
 }
 
+.flexC{
+    display: flex;
+    height: 92vh;
+    overflow-y: auto;
+}
+
 .gridcontainer{
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-rows: 60vh 20vh 20vh;
-    border: 1px solid black;
+    grid-template-rows: 60vh 40vh;
 }
 
 .container{
     display: flex;
     justify-content: center;
-    border: 1px solid pink;
 }
 
 .container1{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid pink;
 }
 
 .imgcontainer{
@@ -50,9 +57,10 @@
 }
 
 #img{
+    height: 60vh;
     border-radius: 2vh;
-    height: 100%;
 }
+
 
 #like{
     right: 0;
@@ -61,6 +69,7 @@
     position: absolute;
 }
 #back{
+    transition: 0.2s;
     position: absolute;
 }
 #back:hover{
@@ -69,7 +78,108 @@
 }
 
 .infocontainer{
-    width: 84%;
+    width: 86%;
     height: 100%;
-    border: 1px solid green;
+}
+
+#productoTitle{
+    font-size: 6.4vw;
+    font-family: "ESsemiBold", sans-serif;
+    color: #1B2028;
+    margin-bottom: 2vw;
+}
+
+#descript{
+    font-size: 3vw;
+    font-family: "ESmixed", sans-serif;
+    color: #878787;
+}
+
+#readMore{
+    color: #1B2028;
+}
+
+#stars{
+    width: 26vw;
+}
+
+#rerviewsText{
+    font-size: 3.6vw;
+    color: #878787;
+    font-family: "ESregular", sans-serif;
+}
+#blue{
+    color: #347EFB;
+}
+
+.reviews{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2vw;
+    margin-bottom: 1vh;
+}
+
+#line{
+    margin: 0;
+    width: 100%;
+}
+
+
+.optionscontainer{
+    margin-top: 1.4vh;
+    width: 100%;
+    display: grid;
+    gap: 20%;
+    grid-template-columns: 40% 40%;
+}
+
+.sizes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#chooseSize{
+    margin-bottom: 1vh;
+    font-size: 3.3vw;
+    font-family: "ESbold", sans-serif;
+}
+
+.colorsOptions{
+    width: 6vw;
+}
+
+.sizesOptions{
+    width: 6vw;
+}
+
+.navigationBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: 3vw;
+    margin-top: 0;
+    width: calc(100% - (6vw));
+    height: 10vh;
+    z-index: +1;
+    bottom: 0;
+    background-color: #292526;
+    border-radius: 12vw;
+}
+
+#cartText{
+    margin-left: 2vw;
+    font-size: 4.6vw;
+    font-family: "ESmixed", sans-serif;
+    color: #ffffff;
+}
+
+#tachado{
+    font-family: "ESregular", sans-serif;
+    font-size: 3vw;
+    text-decoration: line-through;
 }
