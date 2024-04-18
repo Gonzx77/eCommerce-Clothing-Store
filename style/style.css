@@ -171,12 +171,17 @@
 .productosContainer{
     display: flex;
     flex-wrap: wrap;
-    height: 58vh;
+    height: 63vh;
     max-height: 100%;
     overflow: hidden;
     overflow-y: auto;
 }
 
+
+.productContBoton{
+    position: relative;
+    margin-top: 4vw;
+}
 .productCont{
     position: relative;
     margin-top: 4vw;
@@ -245,6 +250,7 @@
     grid-template-columns: repeat(4, 1fr);
     position: absolute;
     margin: 3vw;
+    margin-top: 0;
     width: calc(100% - (6vw));
     height: 10vh;
     z-index: +1;
@@ -266,7 +272,8 @@
 }
 
 .NitemF{
-    padding: 1.4vw;
+    display: flex;
+    padding: 1.6vw;
     border-radius: 50%;
     background-color: #FFFFFF05;
 }

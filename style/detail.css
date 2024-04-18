@@ -1,0 +1,75 @@
+@import url(variables.css);
+
+@font-face {
+    font-family: "ESsemiBold";
+    src: url(../storage/fonts/encodeSans/EncodeSans_SemiCondensed-SemiBold.ttf);
+}
+@font-face {
+    font-family: "ESregular";
+    src: url(../storage/fonts/encodeSans/EncodeSans_SemiCondensed-Regular.ttf);
+}
+@font-face {
+    font-family: "ESbold";
+    src: url(../storage/fonts/encodeSans/EncodeSans-Bold.ttf);
+}
+@font-face {
+    font-family: "ESmedium";
+    src: url(../storage/fonts/encodeSans/EncodeSans-Medium.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.gridcontainer{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 60vh 20vh 20vh;
+    border: 1px solid black;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    border: 1px solid pink;
+}
+
+.container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid pink;
+}
+
+.imgcontainer{
+    position: relative;
+    display: flex;
+}
+
+#img{
+    border-radius: 2vh;
+    height: 100%;
+}
+
+#like{
+    right: 0;
+    margin-top: 1vh;
+    margin-right: 1vh;
+    position: absolute;
+}
+#back{
+    position: absolute;
+}
+#back:hover{
+    transition: 0.2s;
+    filter: invert(100%);
+}
+
+.infocontainer{
+    width: 84%;
+    height: 100%;
+    border: 1px solid green;
+}
