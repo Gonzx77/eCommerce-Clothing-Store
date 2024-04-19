@@ -82,6 +82,40 @@
     height: 100%;
 }
 
+.gridTitle{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gridTitleItem{
+    border: none;
+}
+.gridTitleItem2{
+    display: flex;
+    align-items: center;
+}
+
+.countContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    gap: 2vw;
+}
+
+.countItem{
+    width: 10vw;
+}
+.countItem:hover{
+    filter: invert(100%);
+}
+
+#countNumber{
+    font-family: "ESbold", sans-serif;
+    font-size: 6vw;
+}
+
 #productoTitle{
     font-size: 6.4vw;
     font-family: "ESsemiBold", sans-serif;
@@ -191,4 +225,13 @@
     font-family: "ESregular", sans-serif;
     font-size: 3vw;
     text-decoration: line-through;
+}
+
+@media (min-width: 600px) {
+    #productoTitle{
+        font-size: 4vw;
+    }
+    #stars{
+        width: 16vw;
+    }
 }
