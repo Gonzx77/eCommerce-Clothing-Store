@@ -234,4 +234,19 @@
     #stars{
         width: 16vw;
     }
+    #descript{
+        font-size: 1.9vw;
+    }
+    #rerviewsText{
+        font-size: 2vw;
+    }
+    .flexC{
+        height: 80vh;
+    }
+    #cartText{
+        font-size: 2vw;
+    }
+    #tachado{
+        font-size: 1.2vw;
+    }
 }
