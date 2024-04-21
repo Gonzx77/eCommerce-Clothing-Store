@@ -166,3 +166,19 @@
     font-size: 4vw;
     font-family: "ESsemiBold", sans-serif;
 }
+
+.payMetod{
+    border-radius: 3vw;
+    display: flex;
+    align-items: center;
+    background-color: #F6F6F6;
+    width: calc(100% - (12vw));
+    margin-top: 4vw;
+    margin-left: 6vw;
+    height: 9vh;
+}
+
+#visa{
+    width: 8vh;
+    margin-left: 5vw;
+}
