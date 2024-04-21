@@ -30,9 +30,61 @@
 .gridContainer{
     display: grid;
     border: 1px solid black;
-    grid-template-rows: 10vh 40vh 50vh;
+    grid-template-rows: 10vh 50vh 40vh;
 }
 
 .division{
+    display: flex;
+    align-items: center;
     border: 1px solid red;
+}
+.menu{
+    margin: 6vw;
+    width: 100%;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.boton{
+    transition: 0.2s;
+    border-radius: 50%;
+    background-color: #ffffff;
+    height: 8vh;
+}
+.boton:hover{
+    transition: 0.2s;
+    filter: invert(100%);
+}
+
+#checkout{
+    font-size: 4vh;
+    font-family: "ESsemiBold", sans-serif;
+}
+
+.flexgalery{
+    overflow: hidden;
+    overflow-y: auto;
+    margin: 6vw;
+    width: 100%;
+    height: 100%;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+}
+
+.product{
+    display: flex;
+    border: 1px solid blue;
+}
+
+.img{
+    height: 14vh;
+}
+
+.line{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
