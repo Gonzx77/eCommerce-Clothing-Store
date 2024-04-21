@@ -1,0 +1,38 @@
+@import url(variables.css);
+
+@font-face {
+    font-family: "ESsemiBold";
+    src: url(../storage/fonts/encodeSans/EncodeSans_SemiCondensed-SemiBold.ttf);
+}
+@font-face {
+    font-family: "ESregular";
+    src: url(../storage/fonts/encodeSans/EncodeSans_SemiCondensed-Regular.ttf);
+}
+@font-face {
+    font-family: "ESbold";
+    src: url(../storage/fonts/encodeSans/EncodeSans-Bold.ttf);
+}
+@font-face {
+    font-family: "ESmedium";
+    src: url(../storage/fonts/encodeSans/EncodeSans-Medium.ttf);
+}
+@font-face {
+    font-family: "ESmixed";
+    src: url(../storage/fonts/encodeSans/EncodeSans_SemiCondensed-Medium.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.gridContainer{
+    display: grid;
+    border: 1px solid black;
+    grid-template-rows: 10vh 40vh 50vh;
+}
+
+.division{
+    border: 1px solid red;
+}
