@@ -166,7 +166,24 @@
     font-family: "ESsemiBold", sans-serif;
 }
 
+.payContainer{
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    height: 12vh;
+    overflow: hidden;
+}
+.payContainer:hover{
+    transition: 0.5s;
+    height: 32vh;
+    .payMetod #arrow{
+        transition: 0.5s;
+        transform: rotate(0deg);
+    }
+}
+
 .payMetod{
+    transition: 0.2s;
     position: relative;
     border-radius: 3vw;
     display: flex;
@@ -175,7 +192,13 @@
     width: calc(100% - (12vw));
     margin-top: 4vw;
     margin-left: 6vw;
-    height: 9vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.payMetod:hover{
+    transition: 0.2s;
+    transform: scale(1.1);
+    background-color: #32323220;
 }
 
 #visa{
@@ -195,6 +218,8 @@
     font-size: 3vw;
 }
 #arrow{
+    transition: 0.5s;
+    transform: rotate(-90deg);
     width: 4vw;
     position: absolute;
     right: 0;
