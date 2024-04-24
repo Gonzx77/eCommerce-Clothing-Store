@@ -177,8 +177,9 @@
     transition: 0.5s;
     height: 32vh;
     .payMetod #arrow{
+        background-color: #32323240;
         transition: 0.5s;
-        transform: rotate(0deg);
+        transform: rotate(0deg) scale(1.4);
     }
 }
 
@@ -218,8 +219,10 @@
     font-size: 3vw;
 }
 #arrow{
+    padding: 1vw;
+    border-radius: 50%;
     transition: 0.5s;
-    transform: rotate(-90deg);
+    transform: rotate(-90deg) scale(1.4);
     width: 4vw;
     position: absolute;
     right: 0;
