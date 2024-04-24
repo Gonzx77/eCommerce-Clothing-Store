@@ -129,16 +129,23 @@
 }
 
 .categoriascont{
+    transition: 0.5s;
     gap: 2vw;
-    height: 50%;
-    width: 100vw;
+    height: 5vh;
+    width: 88vw;
+    margin-left: 6vw;
     display: flex;
+    align-items: center;
     flex-direction: row;
     flex-wrap:nowrap;
+    overflow: hidden;
+}
+.categoriascont:hover{
+    width: 88vw;
     overflow-x: auto;
 }
 
-.elemento{
+.elemento, .elemento1{
     padding-left: 2vw;
     padding-right: 2vw;
     height: 5vh;
@@ -150,7 +157,11 @@
     background-color: #ffffff;
     box-sizing: border-box;
 }
+
 .elemento:hover{
+    filter: invert(100%);
+}
+.elemento1:hover{
     filter: invert(100%);
 }
 

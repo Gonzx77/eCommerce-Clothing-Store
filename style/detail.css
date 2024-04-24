@@ -52,6 +52,7 @@
 }
 
 .imgcontainer{
+    margin-top: 6vh;
     position: relative;
     display: flex;
 }
@@ -78,6 +79,7 @@
 }
 
 .infocontainer{
+    margin-top: 6vh;
     width: 86%;
     height: 100%;
 }
@@ -127,6 +129,9 @@
     font-size: 3vw;
     font-family: "ESmixed", sans-serif;
     color: #878787;
+}
+#red{
+    color: red;
 }
 
 #readMore{
