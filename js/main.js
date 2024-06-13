@@ -7,17 +7,12 @@ let search = document.querySelector("#search");
 let container = document.querySelector(".productosContainer");
 let categorias = document.querySelector(".categoriascont");
 
-addEventListener("DOMContentLoaded", async (e) => {
-    let data = "";
-    if (!localStorage.getItem("getAllProducts",)) localStorage.setItem("Products", JSON.stringify(await getAllProducts()));
-    console.log(await getAllProducts(JSON.parse(localStorage.getItem("getAllProducts"))));
-});
+
 
 search.addEventListener("change", async(e) => {
     container.innerHTML = null;
-    let res = await getAllProducts({search: e.target.value});
+    let res = await getAllProducts(e.target.value);
     container.innerHTML += await gallery(res);
-    search.value = null;
 });
 
 const addCategorys = async(e) => {
@@ -29,7 +24,9 @@ addCategorys();
 
 
 
-export const openDetail = async() => {
-    window.open("views/detail.html", "_blank");
+const openDetail = async() => {
+    window.open("../views/detail.html", "_blank");
     await detail();
 };
+
+window.openDetail = openDetail;

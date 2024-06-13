@@ -1,4 +1,4 @@
-export const detail = async() => {
+export const detail = async(asin) => {
 
     plantilla += /*html*/`
     <div class="imgcontainer">

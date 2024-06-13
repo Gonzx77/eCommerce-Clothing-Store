@@ -7,10 +7,9 @@ export const gallery = async(res) => {
         let pImg = products[index].product_photo;
         let pPrice = products[index].product_price;
         let pRating = products[index].product_star_rating;
-        let pUrl = products[index].product_url;
 
         plantilla += /*html*/`
-        <div onclick="openDetail(${pImg})" class="productCont">
+        <div onclick="openDetail()" class="productCont">
             <img id="likeEmpty" src="storage/media/likeEmpty.svg">
             <img class="productoImg" src="${pImg}">
             <p class="productTitle">${pName}</p>
