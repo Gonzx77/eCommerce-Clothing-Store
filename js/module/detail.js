@@ -1,37 +1,42 @@
 import { getProduct } from "./app.js";
 
 let containerDetail = document.querySelector("#containerDetail");
+let indexBody = document.querySelector("#detailBody");
+
 
 const request = indexedDB.open('miBaseDeDatos', 1);
 request.onsuccess = function(event) {
+    console.log("Cargando...");
     const db = event.target.result;
     const transaction = db.transaction(['miAlmacen'], 'readwrite');
     const store = transaction.objectStore('miAlmacen');
     const getRequest = store.get(1);
-    const deleteRequest = store.delete(1);
-    getRequest.onsuccess = function(event) {
+    getRequest.onsuccess = async(event) => {
         const objeto = event.target.result;
-        console.log(objeto.nombre);
+        let asin = objeto.asin;
+        let product = await getProduct(asin);
+        product = product.data.products[0];
+        console.log(product);
+        detailAdd(product);
     };
 };
 
-const detailAdd = async(element) => {
-    console.log("Entro");
-    let asin = element.id;
+const detailAdd = async(product) => {
+    console.log("Maquetando...");
 
-    let product = await getProduct(asin);
-    product = product.data.products[0];
-
+    let pOriginalPrice = product.product_original_price;
+    let pPrice = product.product_price;
     let pRating = product.product_star_rating;
     let pNumRatings = product.product_num_ratings;
     let pName = product.product_title;
     let pImg = product.product_photo;
+    console.log(pImg);
 
     let plantilla = /*html*/`
         <div class="container1">
             <div class="imgcontainer">
-                <img id="like" src="${pImg}">
-                <img id="img" src="">
+                <img id="like" src="../storage/media/likeEmpty.svg">
+                <img id="img" src="${pImg}">
                 <img onclick="window.location.href = '../index.html'" id="back" src="../storage/media/back.svg">
             </div>
         </div>
@@ -54,8 +59,7 @@ const detailAdd = async(element) => {
                     <p id="rerviewsText">${pRating} <span id="blue">(${pNumRatings} reseñas)</span></p>
                 </div>
 
-                <p id="descript">El Auricular Logitech G435 ofrece una gran experiencia de audio especialmente para <span id="red">Videojuego</span>,
-                    su diseño comodo y liviano ofrece una comodidad unica a la hora de Jugar o escuchar musica <span id="readMore">LeerMas...</span></p>
+                <p id="descript">${pName}</p>
             
                 <img id="line" src="../storage/media/line.svg">
 
@@ -83,5 +87,14 @@ const detailAdd = async(element) => {
         </div>
     `;
 
+    let plantilla2 = /*html*/`    
+    <div onclick="window.location.href = 'checkout.html'" class="navigationBar">
+        <img src="../storage/media/shopping-cart.svg">
+        <p id="cartText">Añadir al carro | ${pPrice} <span id="tachado">${pOriginalPrice}</span></p>
+    </div>
+
+    `;
+
     containerDetail.innerHTML += plantilla;
+    indexBody.innerHTML += plantilla2;
 };

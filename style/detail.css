@@ -119,7 +119,7 @@
 }
 
 #productoTitle{
-    font-size: 6.4vw;
+    font-size: 3vw;
     font-family: "ESsemiBold", sans-serif;
     color: #1B2028;
     margin-bottom: 2vw;
@@ -233,9 +233,6 @@
 }
 
 @media (min-width: 600px) {
-    #productoTitle{
-        font-size: 4vw;
-    }
     #stars{
         width: 16vw;
     }
