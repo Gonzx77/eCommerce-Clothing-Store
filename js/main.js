@@ -1,27 +1,10 @@
-import { getAllProducts, getAllCategorys } from "./module/app.js";
+import { getAllProducts, getAllCategorys, getProduct } from "./module/app.js";
 import { gallery } from "./components/gallery.js";
 import { category } from "./components/category.js";
 
 let search = document.querySelector("#search");
 let container = document.querySelector(".productosContainer");
 let categorias = document.querySelector(".categoriascont");
-
-
-(async() => {
-    console.log("Key añadida");
-    const request = indexedDB.open('miBaseDeDatos', 1);
-    request.onupgradeneeded = function(event) {
-        const db = event.target.result;
-        const store = db.createObjectStore('miAlmacen', { keyPath: 'id' });
-    };
-    request.onsuccess = function(event) {
-        const db = event.target.result;
-        const transaction = db.transaction(['miAlmacen'], 'readwrite');
-        const store = transaction.objectStore('miAlmacen');
-        const objetoJSON = { id: 1, asin: "asin" };
-        const request = store.add(objetoJSON);
-    };
-})();
 
 
 
@@ -44,20 +27,10 @@ addCategorys();
 const openDetail = async(element) => {
     console.log("Abriendo...");
     let asin = element.id;
-    
-    const request = indexedDB.open('miBaseDeDatos', 1);
-    request.onupgradeneeded = function(event) {
-        const db = event.target.result;
-        const store = db.createObjectStore('miAlmacen', { keyPath: 'id' });
-    };
-    request.onsuccess = function(event) {
-        const db = event.target.result;
-        const transaction = db.transaction(['miAlmacen'], 'readwrite');
-        const store = transaction.objectStore('miAlmacen');
-        const objetoJSON = { id: 1, asin: asin };
-        const request = store.put(objetoJSON);
-    };
+    let product = await getProduct(asin);
+    product = product.data.products[0];
 
-    window.open("../views/detail.html", "_blank");
+    window.localStorage.setItem(asin, JSON.stringify(product));
+    window.open("../views/detail.html?asin=" + encodeURIComponent(asin), "_blank");
 };
 window.openDetail = openDetail;

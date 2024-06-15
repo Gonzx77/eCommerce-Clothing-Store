@@ -1,28 +1,15 @@
-import { getProduct } from "./app.js";
-
-let containerDetail = document.querySelector("#containerDetail");
-let indexBody = document.querySelector("#detailBody");
-
-
-const request = indexedDB.open('miBaseDeDatos', 1);
-request.onsuccess = function(event) {
-    console.log("Cargando...");
-    const db = event.target.result;
-    const transaction = db.transaction(['miAlmacen'], 'readwrite');
-    const store = transaction.objectStore('miAlmacen');
-    const getRequest = store.get(1);
-    getRequest.onsuccess = async(event) => {
-        const objeto = event.target.result;
-        let asin = objeto.asin;
-        let product = await getProduct(asin);
-        product = product.data.products[0];
-        console.log(product);
-        detailAdd(product);
-    };
-};
-
-const detailAdd = async(product) => {
+document.addEventListener("DOMContentLoaded", function() {
     console.log("Maquetando...");
+
+    let containerDetail = document.querySelector("#containerDetail");
+    let indexBody = document.querySelector("#detailBody");
+    
+
+    let params = new URLSearchParams(window.location.search);
+    params = params.get("asin");
+
+    let product = localStorage.getItem(params);
+    product = JSON.parse(product);
 
     let pOriginalPrice = product.product_original_price;
     let pPrice = product.product_price;
@@ -30,7 +17,6 @@ const detailAdd = async(product) => {
     let pNumRatings = product.product_num_ratings;
     let pName = product.product_title;
     let pImg = product.product_photo;
-    console.log(pImg);
 
     let plantilla = /*html*/`
         <div class="container1">
@@ -97,4 +83,4 @@ const detailAdd = async(product) => {
 
     containerDetail.innerHTML += plantilla;
     indexBody.innerHTML += plantilla2;
-};
+});
