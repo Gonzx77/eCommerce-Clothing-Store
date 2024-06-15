@@ -320,6 +320,19 @@
     background-color: #FFFFFF40;
 }
 
+.categoryInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1vw;
+    border-radius: 10px;
+    margin-left: 20px;
+    background-color: #323232;
+    width: 20vw;
+    height: 5vh;
+}
+
 @media (min-width: 600px) {
     .column1{
         flex: 25%;

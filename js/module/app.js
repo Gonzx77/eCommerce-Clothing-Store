@@ -14,6 +14,7 @@ export const getAllProducts = async(text) => {
 
 export const getAllProductsByCategory = async(text, category) => {
     const url = `https://real-time-amazon-data.p.rapidapi.com/search?query=${text}&page=1&country=US&sort_by=RELEVANCE&category_id=${category}&product_condition=ALL`;
+    console.log(url);
     const options = {
         method: 'GET',
         headers
