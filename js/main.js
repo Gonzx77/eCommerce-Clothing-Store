@@ -1,4 +1,4 @@
-import { getAllProducts, getAllCategorys, getProduct, getAllProductsByCategory } from "./module/app.js";
+import { getAllProducts, getAllCategorys, getProduct, getProductInfo, getAllProductsByCategory } from "./module/app.js";
 import { gallery } from "./components/gallery.js";
 import { category } from "./components/category.js";
 
@@ -21,7 +21,7 @@ search.addEventListener("change", async(e) => {
 
     let res = await getAllProductsByCategory(e.target.value, category);
     container.innerHTML = null;
-    container.innerHTML += await gallery(res);
+    container.innerHTML += await gallery(res, categoryHere);
 });
 
 const addCategorys = async(e) => {
@@ -38,6 +38,10 @@ const openDetail = async(element) => {
     let asin = element.id;
     let product = await getProduct(asin);
     product = product.data.products[0];
+    let productInfo = await getProductInfo(asin);
+    productInfo = productInfo.data.product_description;
+
+    product.descript = productInfo;
 
     window.localStorage.setItem(asin, JSON.stringify(product));
     window.open("../views/detail.html?asin=" + encodeURIComponent(asin), "_blank");

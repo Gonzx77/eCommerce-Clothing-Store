@@ -1,4 +1,4 @@
-export const gallery = async(res) => {
+export const gallery = async(res, categoryHere) => {
     let products = res.data.products;
     let plantilla = "";
 
@@ -14,7 +14,7 @@ export const gallery = async(res) => {
             <img id="likeEmpty" src="storage/media/likeEmpty.svg">
             <img class="productoImg" src="${pImg}">
             <p class="productTitle">${pName}</p>
-            <p class="productoDescrip">Teclado</p>
+            <p class="productoDescrip">${categoryHere}</p>
             <p class="productoPrice">${pPrice}</p>
             <div class="productoRating">
                 <img class="ratingImg" src="storage/media/star.svg">

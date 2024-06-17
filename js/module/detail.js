@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let pNumRatings = product.product_num_ratings;
     let pName = product.product_title;
     let pImg = product.product_photo;
+    let pDescript = product.descript;
 
     let plantilla = /*html*/`
         <div class="container1">
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <p id="rerviewsText">${pRating} <span id="blue">(${pNumRatings} reseñas)</span></p>
                 </div>
 
-                <p id="descript">${pName}</p>
+                <p id="descript">${pDescript}</p>
             
                 <img id="line" src="../storage/media/line.svg">
 
