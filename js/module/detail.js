@@ -85,8 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
     containerDetail.innerHTML += plantilla;
     indexBody.innerHTML += plantilla2;
 
-    let botonSuma = document.querySelector("#botonSuma");
-    let botonResta = document.querySelector("#botonResta");
     let countNumber = document.querySelector("#countNumber");
 
     const cantidadProducto = (valor) => {
@@ -104,7 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Abriendo Checkout...");
         window.open("../views/checkout.html?asin=" + encodeURIComponent(asin), "_blank");
 
-        window.localStorage.setItem(asin, JSON.stringify(product));
+        product.cantidad = parseInt(countNumber.textContent, 10);
+        window.localStorage.setItem(`${asin}--P`, JSON.stringify(product));
     };
     window.openCheckout = openCheckout;
 });
