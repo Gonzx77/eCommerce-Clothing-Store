@@ -18,8 +18,14 @@ for (let i = 0; i < keys.length; i++) {
     }
 }
 
+let productsCantidad = document.querySelector("#productsCantidad");
+let productsCantidadValue = parseFloat(productsCantidad.textContent);
+
+let subTotal = document.querySelector("#totalN");
 let totalDiv = document.querySelector("#totalN2");
-totalDiv.innerHTML = "";
+totalDiv.innerHTML = 0;
+
+let totalDivValue = parseFloat(totalDiv.textContent);
 let container = document.querySelector(".flexgalery");
 
 for (let i = 0; i < filteredKeys.length; i++) {
@@ -37,11 +43,10 @@ for (let i = 0; i < filteredKeys.length; i++) {
     let pDescript = product.descript;
 
     let totalPrice = parseFloat(pPrice.slice(1).replace(',', '.'));
-    totalPrice = `$${totalPrice * pCantidad}`;
+    totalPrice = (totalPrice * pCantidad);
 
 
     let plantilla = /*html*/`
-        <img class="line" src="../storage/media/line2.svg">
         <div class="product">
             <img class="img" src="${pImg}">
             <div class="header">
@@ -57,14 +62,17 @@ for (let i = 0; i < filteredKeys.length; i++) {
                 </div>
             </div>
         </div>
+        <img class="line" src="../storage/media/line2.svg">
         `;
 
 
-    totalDiv = totalDiv.textContent;
-    let total = parseFloat(totalDiv.slice(1).replace(',', '.'));
-    total += totalPrice;
+    totalDivValue += totalPrice;
+    productsCantidadValue += pCantidad;
 
-    totalDiv.innerHTML = total;
+    
+    productsCantidad.innerHTML = productsCantidadValue;
+    subTotal.innerHTML = `$${totalDivValue}`;
+    totalDiv.innerHTML = `$${totalDivValue}`;
     container.innerHTML += plantilla;
 }
 
