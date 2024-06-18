@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
     let params = new URLSearchParams(window.location.search);
-    params = params.get("asin");
+    let asin = params.get("asin");
 
-    let product = localStorage.getItem(params);
+    let product = localStorage.getItem(asin);
     product = JSON.parse(product);
 
     let pOriginalPrice = product.product_original_price;
@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                     <div class="gridTitleItem2">
                         <div class="countContainer">
-                            <img class="countItem" src="../storage/media/countMinus.svg">
-                            <p id="countNumber">1</p>
-                            <img class="countItem" src="../storage/media/countMore.svg">
+                            <img class="countItem" src="../storage/media/countMinus.svg" id="botonResta" onclick="cantidadProducto(-1)">
+                            <p id="countNumber">0</p>
+                            <img class="countItem" src="../storage/media/countMore.svg" id="botonSuma" onclick="cantidadProducto(1)">
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
 
     let plantilla2 = /*html*/`    
-    <div onclick="window.location.href = 'checkout.html'" class="navigationBar">
+    <div onclick="openCheckout(this)" class="navigationBar">
         <img src="../storage/media/shopping-cart.svg">
         <p id="cartText">Añadir al carro | ${pPrice} <span id="tachado">${pOriginalPrice}</span></p>
     </div>
@@ -84,4 +84,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
     containerDetail.innerHTML += plantilla;
     indexBody.innerHTML += plantilla2;
+
+    let botonSuma = document.querySelector("#botonSuma");
+    let botonResta = document.querySelector("#botonResta");
+    let countNumber = document.querySelector("#countNumber");
+
+    const cantidadProducto = (valor) => {
+        let res = parseInt(countNumber.textContent, 10);
+        res += valor;
+        if (res < 0) {
+            countNumber.innerHTML = 0;
+        }else{
+            countNumber.innerHTML = res;
+        }
+    };
+    window.cantidadProducto = cantidadProducto;
+
+    const openCheckout = async() => {
+        console.log("Abriendo Checkout...");
+        window.open("../views/checkout.html?asin=" + encodeURIComponent(asin), "_blank");
+
+        window.localStorage.setItem(asin, JSON.stringify(product));
+    };
+    window.openCheckout = openCheckout;
 });
