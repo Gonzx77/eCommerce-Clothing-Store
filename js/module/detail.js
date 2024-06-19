@@ -12,7 +12,14 @@ document.addEventListener("DOMContentLoaded", function() {
     product = JSON.parse(product);
 
     let pOriginalPrice = product.product_original_price;
+    let Oprice = 0;
+    if (pOriginalPrice == null) {
+        pOriginalPrice = 0;
+    }else{
+        Oprice = parseFloat(pOriginalPrice.slice(1).replace(',', '.'));
+    }
     let pPrice = product.product_price;
+    let price = parseFloat(pPrice.slice(1).replace(',', '.'));
     let pRating = product.product_star_rating;
     let pNumRatings = product.product_num_ratings;
     let pName = product.product_title;
@@ -36,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="gridTitleItem2">
                         <div class="countContainer">
                             <img class="countItem" src="../storage/media/countMinus.svg" id="botonResta" onclick="cantidadProducto(-1)">
-                            <p id="countNumber">0</p>
+                            <p id="countNumber">1</p>
                             <img class="countItem" src="../storage/media/countMore.svg" id="botonSuma" onclick="cantidadProducto(1)">
                         </div>
                     </div>
@@ -77,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let plantilla2 = /*html*/`    
     <div onclick="openCheckout(this)" class="navigationBar">
         <img src="../storage/media/shopping-cart.svg">
-        <p id="cartText">Añadir al carro | ${pPrice} <span id="tachado">${pOriginalPrice}</span></p>
+        <p id="cartText">Añadir al carro | <span id="productPrice">$${price}</span>&nbsp;&nbsp;<span id="tachado">$${Oprice}</span></p>
     </div>
 
     `;
@@ -85,18 +92,23 @@ document.addEventListener("DOMContentLoaded", function() {
     containerDetail.innerHTML += plantilla;
     indexBody.innerHTML += plantilla2;
 
-    let botonSuma = document.querySelector("#botonSuma");
-    let botonResta = document.querySelector("#botonResta");
     let countNumber = document.querySelector("#countNumber");
+    let priceDiv = document.querySelector("#productPrice");
+    let tachado = document.querySelector("#tachado");
 
     const cantidadProducto = (valor) => {
         let res = parseInt(countNumber.textContent, 10);
         res += valor;
-        if (res < 0) {
-            countNumber.innerHTML = 0;
+        if (res < 1) {
+            countNumber.innerHTML = 1;
+            priceDiv.innerHTML = (`$${price}`);
+            tachado.innerHTML = (`$${Oprice}`);
         }else{
             countNumber.innerHTML = res;
+            priceDiv.innerHTML = (`$${price * res}`);
+            tachado.innerHTML = (`$${Oprice * res}`);
         }
+
     };
     window.cantidadProducto = cantidadProducto;
 
@@ -104,7 +116,8 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Abriendo Checkout...");
         window.open("../views/checkout.html?asin=" + encodeURIComponent(asin), "_blank");
 
-        window.localStorage.setItem(asin, JSON.stringify(product));
+        product.cantidad = parseInt(countNumber.textContent, 10);
+        window.localStorage.setItem(`${asin}--P`, JSON.stringify(product));
     };
     window.openCheckout = openCheckout;
 });
