@@ -5,129 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
+    <script type="module" src="../js/module/checkout.js" defer></script>
 </head>
 <body>
     
     <div class="gridContainer">
         <div class="division">
             <div class="menu">
-                <img onclick="window.location.href = 'detail.html'" class="boton" src="../storage/media/backNoS.svg">
+                <img onclick="openDetail()" class="boton" src="../storage/media/backNoS.svg">
                 <p id="checkout">Compra</p>
                 <img class="boton" src="../storage/media/menu.svg">
             </div>
         </div>
         <div class="division">
             <div class="flexgalery">
-                <div class="product">
-                    <div class="producto">
-                        <img class="img" src="../storage/media/images/Aur1.webp">
-                    </div>
-                    <div class="header">
-                        <p id="productTitle">Auricular Logitech G435</p>
-                        <p id="productDescript">Auricular</p>
-                        <p id="productPrice">$390.600</p>
-                    </div>
-                    <div class="prodcutCount">
-                        <img id="points" src="../storage/media/menu3points.svg">
-                        <div class="fondo">
-                            <img class="count" src="../storage/media/minusWhite.svg">
-                            <p class="number">4</p>
-                            <img class="count" src="../storage/media/plusWhite.svg">
-                        </div>
-                    </div>
-                </div>
-
-                <img class="line" src="../storage/media/line2.svg">
-                <div class="product">
-                    <img class="img" src="../storage/media/images/Mon2.webp">
-                    <div class="header">
-                        <p id="productTitle">Monitor BenQ EX410</p>
-                        <p id="productDescript">Monitor</p>
-                        <p id="productPrice">$4.230.000</p>
-                    </div>
-                    <div class="prodcutCount">
-                        <img id="points" src="../storage/media/menu3points.svg">
-                        <div class="fondo">
-                            <img class="count" src="../storage/media/minusWhite.svg">
-                            <p class="number">1</p>
-                            <img class="count" src="../storage/media/plusWhite.svg">
-                        </div>
-                    </div>
-                </div>
-
-                <img class="line" src="../storage/media/line2.svg">
-                <div class="product">
-                    <img class="img" src="../storage/media/images/Mouse1.jpg">
-                    <div class="header">
-                        <p id="productTitle">Mouse Logitech G502</p>
-                        <p id="productDescript">Mouse</p>
-                        <p id="productPrice">$185.600</p>
-                    </div>
-                    <div class="prodcutCount">
-                        <img id="points" src="../storage/media/menu3points.svg">
-                        <div class="fondo">
-                            <img class="count" src="../storage/media/minusWhite.svg">
-                            <p class="number">4</p>
-                            <img class="count" src="../storage/media/plusWhite.svg">
-                        </div>
-                    </div>
-                </div>
-
-                <img class="line" src="../storage/media/line2.svg">
-                <div class="product">
-                    <div class="producto">
-                        <img class="img" src="../storage/media/images/Tec2.jpg">
-                    </div>
-                    <div class="header">
-                        <p id="productTitle">Teclado Redragon Fizz K617</p>
-                        <p id="productDescript">Teclado</p>
-                        <p id="productPrice">$223.400</p>
-                    </div>
-                    <div class="prodcutCount">
-                        <img id="points" src="../storage/media/menu3points.svg">
-                        <div class="fondo">
-                            <img class="count" src="../storage/media/minusWhite.svg">
-                            <p class="number">4</p>
-                            <img class="count" src="../storage/media/plusWhite.svg">
-                        </div>
-                    </div>
-                </div>
-
-                <img class="line" src="../storage/media/line2.svg">
-                <div class="product">
-                    <img class="img" src="../storage/media/images/Lamp2.jpeg">
-                    <div class="header">
-                        <p id="productTitle">Lampara de mesa</p>
-                        <p id="productDescript">Luces</p>
-                        <p id="productPrice">$55.800</p>
-                    </div>
-                    <div class="prodcutCount">
-                        <img id="points" src="../storage/media/menu3points.svg">
-                        <div class="fondo">
-                            <img class="count" src="../storage/media/minusWhite.svg">
-                            <p class="number">1</p>
-                            <img class="count" src="../storage/media/plusWhite.svg">
-                        </div>
-                    </div>
-                </div>
-
-                <img class="line" src="../storage/media/line2.svg">
-                <div class="product">
-                    <img class="img" src="../storage/media/images/Pc3.jpg">
-                    <div class="header">
-                        <p id="productTitle">PC GAMER R9 5950X</p>
-                        <p id="productDescript">PC</p>
-                        <p id="productPrice">$6.320.000</p>
-                    </div>
-                    <div class="prodcutCount">
-                        <img id="points" src="../storage/media/menu3points.svg">
-                        <div class="fondo">
-                            <img class="count" src="../storage/media/minusWhite.svg">
-                            <p class="number">4</p>
-                            <img class="count" src="../storage/media/plusWhite.svg">
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="division2">
@@ -149,16 +41,16 @@
             </div>
             <div class="payDetail">
                 <div class="payLeft">
-                    <p id="total">Total (9 items)</p>
+                    <p id="total">Total (<span id="productsCantidad">0</span> items)</p>
                     <p id="total">Shipping Fee</p>
                     <img id="lineDetail" src="../storage/media/line2.svg">
                     <p id="total2">Sub Total</p>
                 </div>
                 <div class="payRight">
                     <div class="payRightContainer">
-                        <p id="totalN">$131.97</p>
-                        <p id="totalN">$0.00</p>
-                        <p id="totalN2">$131.97</p>
+                        <p id="totalN">0</p>
+                        <p id="totalN1">$0.00</p>
+                        <p id="totalN2">0</p>
                     </div>
                 </div>
             </div>

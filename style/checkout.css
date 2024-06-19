@@ -128,17 +128,15 @@
 }
 
 .fondo{
-    padding: 2vw;
-    padding-top: 3vw;
-    padding-bottom: 3vw;
     border-radius: 2vw;
     margin-right: 1vw;
     margin-bottom: 1vw;
     height: 6vw;
-    width: 20vw;
+    width: 10vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1vw;
     background-color: #1B2028;
 }
 .count{
@@ -150,13 +148,23 @@
     color: #ffffff;
 }
 
-#points{
+.editPen{
+    width: 3vw;
+    filter: invert();
+}
+
+.x{
+    border-radius: 50%;
+    padding: 4px;
     width: 4.4vw;
     position: absolute;
     margin-top: 1vw;
     margin-right: 1vw;
     top: 0;
     right: 0;
+}
+.x:hover{
+    background-color: #32323240;
 }
 
 #information{

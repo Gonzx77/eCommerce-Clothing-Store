@@ -5,69 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details</title>
+    <script type="module" src="../js/module/detail.js" defer></script>
 </head>
-<body>
+<body id="detailBody">
     <div class="flexC">
-        <div class="gridcontainer">
-            <div class="container1">
-                <div class="imgcontainer">
-                    <img id="like" src="../storage/media/likeinvert.svg">
-                    <img id="img" src="../storage/media/images/Aur1.webp">
-                    <img onclick="window.location.href = '../index.html'" id="back" src="../storage/media/back.svg">
-                </div>
-            </div>
-            <div class="container">
-                <div class="infocontainer">
-                    <div class="gridTitle">
-                        <div class="gridTitleItem">
-                            <p id="productoTitle">Auricular<br>Logitech G435</p>
-                        </div>
-                        <div class="gridTitleItem2">
-                            <div class="countContainer">
-                                <img class="countItem" src="../storage/media/countMinus.svg">
-                                <p id="countNumber">1</p>
-                                <img class="countItem" src="../storage/media/countMore.svg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="reviews">
-                        <img id="stars" src="../storage/media/stars.svg">
-                        <p id="rerviewsText">5.0 <span id="blue">(7.932 reseñas)</span></p>
-                    </div>
+        <div class="gridcontainer" id="containerDetail">
 
-                    <p id="descript">El Auricular Logitech G435 ofrece una gran experiencia de audio especialmente para <span id="red">Videojuego</span>,
-                        su diseño comodo y liviano ofrece una comodidad unica a la hora de Jugar o escuchar musica <span id="readMore">LeerMas...</span></p>
-                
-                    <img id="line" src="../storage/media/line.svg">
-
-                    <div class="optionscontainer">
-                        <div class="tallas">
-                            <p id="chooseSize">Tamaños</p>
-                            <div class="sizes">
-                                <img class="sizesOptions" src="../storage/media/sizeS.svg">
-                                <img class="sizesOptions" src="../storage/media/sizeM.svg">
-                                <img class="sizesOptions" src="../storage/media/sizeL.svg">
-                                <img class="sizesOptions" src="../storage/media/sizeXL.svg">
-                            </div>
-                        </div>
-                        <div class="colors">
-                            <p id="chooseSize">Colores</p>
-                            <div class="sizes">
-                                <img class="colorsOptions" src="../storage/media/color1.svg">
-                                <img class="colorsOptions" src="../storage/media/color2.svg">
-                                <img class="colorsOptions" src="../storage/media/color3.svg">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
-        <div onclick="window.location.href = 'checkout.html'" class="navigationBar">
-            <img src="../storage/media/shopping-cart.svg">
-            <p id="cartText">Añadir al carro | $390.600 <span id="tachado">$430.700</span></p>
-        </div>
+    <!-- <div onclick="window.location.href = 'checkout.html'" class="navigationBar">
+        <img src="../storage/media/shopping-cart.svg">
+        <p id="cartText">Añadir al carro | $390.600 <span id="tachado">$430.700</span></p>
+    </div> -->
 
 </body>
 </html>
