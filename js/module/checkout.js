@@ -3,10 +3,6 @@ console.log("Se abrio checkout");
 let params = new URLSearchParams(window.location.search);
 let asin = params.get("asin");
 
-let product = localStorage.getItem(`${asin}--P`);
-product = JSON.parse(product);
-console.log(product);
-
 
 let keys = Object.keys(localStorage);
 
@@ -51,7 +47,7 @@ for (let i = 0; i < filteredKeys.length; i++) {
             <img class="img" src="${pImg}">
             <div class="header">
                 <p id="productTitle">${pName}</p>
-                <p id="productPrice">${totalPrice}</p>
+                <p id="productPrice">$${totalPrice}</p>
             </div>
             <div class="prodcutCount">
                 <img id="points" src="../storage/media/menu3points.svg">
