@@ -29,6 +29,7 @@ for (let i = 0; i < filteredKeys.length; i++) {
     let product = localStorage.getItem(filteredAsin);
     product = JSON.parse(product);
 
+    let asin = product.asin;
     let pCantidad = product.cantidad;
     let pOriginalPrice = product.product_original_price;
     let pPrice = product.product_price;
@@ -42,6 +43,12 @@ for (let i = 0; i < filteredKeys.length; i++) {
     totalPrice = (totalPrice * pCantidad);
 
 
+    if (pName.length > 40) {
+        pName = pName.substring(0, 40);
+        pName = (`${pName}...`)
+    }
+
+
     let plantilla = /*html*/`
         <div class="product">
             <img class="img" src="${pImg}">
@@ -50,11 +57,10 @@ for (let i = 0; i < filteredKeys.length; i++) {
                 <p id="productPrice">$${totalPrice}</p>
             </div>
             <div class="prodcutCount">
-                <img id="points" src="../storage/media/menu3points.svg">
+                <img onclick="deleteProduct(this)" class="x" id="${asin}" src="../storage/media/x.png">
                 <div class="fondo">
-                    <img class="count" src="../storage/media/minusWhite.svg">
+                <img onclick="editarProduct(this)" class="editPen" id="${asin}" src="../storage/media/editarPen.png">
                     <p class="number">${pCantidad}</p>
-                    <img class="count" src="../storage/media/plusWhite.svg">
                 </div>
             </div>
         </div>
@@ -71,6 +77,25 @@ for (let i = 0; i < filteredKeys.length; i++) {
     totalDiv.innerHTML = `$${totalDivValue}`;
     container.innerHTML += plantilla;
 }
+
+const deleteProduct = async(element) => {
+    let confirm = prompt("Desea eliminar este producto? (Si / No)");
+    if (confirm.toLowerCase() == "si") {
+        let asinP = `${element.id}--P`;
+        localStorage.removeItem(asinP);
+        window.location.reload();
+    }else{
+        console.log("Ok");
+    }
+
+}
+window.deleteProduct = deleteProduct;
+
+const editarProduct = async(element) => {
+    let asin = element.id;
+    window.open("../views/detail.html?asin=" + encodeURIComponent(asin), "_blank");
+}
+window.editarProduct = editarProduct;
 
 const openDetail = async() => {
     console.log("Abriendo Detail...");

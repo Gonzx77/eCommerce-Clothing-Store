@@ -9,6 +9,11 @@ export const gallery = async(res, categoryHere) => {
         let pPrice = products[index].product_price;
         let pRating = products[index].product_star_rating;
 
+        if (pName.length > 60) {
+            pName = pName.substring(0, 60);
+            pName = (`${pName}...`)
+        }
+
         plantilla += /*html*/`
         <div onclick="openDetail(this)" class="productCont" id="${asin}">
             <img id="likeEmpty" src="storage/media/likeEmpty.svg">
