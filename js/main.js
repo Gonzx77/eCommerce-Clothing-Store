@@ -1,5 +1,5 @@
 import { getAllProducts, getAllCategorys, getProduct, getProductInfo, getAllProductsByCategory } from "./module/app.js";
-import { gallery } from "./components/gallery.js";
+import { gallery, inititalGallery } from "./components/gallery.js";
 import { category } from "./components/category.js";
 
 let search = document.querySelector("#search");
@@ -12,6 +12,22 @@ let categoryHere = new URLSearchParams(window.location.search);
 categoryHere = categoryHere.get("category_id");
 categoryInfo.innerHTML = categoryHere;
 
+const addCategorys = async(e) => {
+    let res = await getAllCategorys();
+    categorias.innerHTML += await category(res);
+    search.value = null;
+};
+await addCategorys();
+
+const firstGallery = async() => {
+    console.log("Maquetando...");
+    let data = await getAllProducts("zapato");
+
+    container.innerHTML = await inititalGallery(data);
+};
+
+await firstGallery();
+
 
 
 search.addEventListener("change", async(e) => {
@@ -23,13 +39,6 @@ search.addEventListener("change", async(e) => {
     container.innerHTML = null;
     container.innerHTML += await gallery(res, categoryHere);
 });
-
-const addCategorys = async(e) => {
-    let res = await getAllCategorys();
-    categorias.innerHTML += await category(res);
-    search.value = null;
-};
-addCategorys();
 
 
 
